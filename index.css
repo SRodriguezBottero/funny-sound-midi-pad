@@ -1,0 +1,115 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.sound-pad-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 450px; /* Max width of the pad */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.sound-pad-button {
+  aspect-ratio: 1 / 1; /* Makes buttons square */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  position: relative; /* For keybind hint positioning */
+}
+
+.sound-pad-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.sound-pad-button:active,
+.sound-pad-button.playing {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.keybind-hint {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 0.8em;
+    padding: 2px 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    font-weight: normal;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .sound-pad-container {
+    gap: 10px;
+    padding: 15px;
+    max-width: 90vw;
+  }
+  .sound-pad-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .keybind-hint {
+    font-size: 0.7em;
+    top: 3px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sound-pad-button {
+    font-size: 0.9rem;
+  }
+}
